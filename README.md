@@ -14,6 +14,8 @@ Click on _Code -> Download Zip_. Go to Chrome, click on the three dots in the to
 1. You have to refresh every YouTube page using Ctrl+F5 for it to actually activate, just pressing F5 or opening a YouTube video in an opened tab won't work.
 2. If you can't find the 'load unpacked' button in extensions, you have to activate developer mode using the toggle button.
 3. If you get a message saying something along the lines of 'manifest not found' after you select the folder, you're selecting the wrong folder. You have to open the unpacked zip and select the folder inside it (has the same name, is just one step down).
-4. YouTube is doing weird stuff on their end and the changes haven't gotten to me yet ¯\_(ツ)_/¯
+4. YouTube is doing weird stuff on their end and the changes haven't gotten to me yet ¯&#92;_(ツ)_/¯
 
-Also, if you're using light mode, the bar will look weird, cause I made it in dark mode, will fix that soon.
+## Recent Fixes:
+
+- Dark mode and Light mode now both work okay
