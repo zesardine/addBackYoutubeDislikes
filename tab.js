@@ -34,19 +34,14 @@ function mainFunc(){
 		let dislikes = 0;
 		
 		if(beginStr != -1 && endStr != -1){
-		
-			let stuffs = document.getElementsByTagName("yt-formatted-string");
-			likes = 0;
-			for (let i = 0; i < stuffs.length; i++){
-				if(stuffs[i].getAttribute('aria-label') != undefined){
-					if(stuffs[i].getAttribute('aria-label').includes("likes")){
-						likes = parseInt((stuffs[i].getAttribute('aria-label')).replace(/[^\d.]/g, ''));
-						break;
-					}
-				}
-			}
+			console.log("Getting Values");
+			elemLikes = document.querySelectorAll("[aria-label$=likes]")[0];
+			likes = parseInt((elemLikes.getAttribute('aria-label')).replace(/[^\d.]/g, ''));
+						
 			dislikes = Math.round(((5-important)*likes)/(important-1));
 			console.log(convertSI(dislikes));	
+		}else{
+			console.log("Values Failed");
 		}
 		
 		var dislikesExists = document.getElementsByClassName("newDislikeCount").length;
@@ -68,7 +63,8 @@ function mainFunc(){
 			var wd = document.getElementsByClassName("ytd-menu-renderer")[0].children[2].offsetLeft*0.95;
 			var ratio = (important-1)/4*100
 			var bloop = document.createElement("div");
-			bloop.innerHTML = '<div id="sentiment" class="style-scope ytd-video-primary-info-renderer customthingy" system-icons="" style="width: ' + wd +'px;"><!--css-build:shady--><div id="container" class="style-scope" style="height:2px; background-color: #555;"><div id="like-bar" class="style-scope" style="width: ' + ratio + '%; height: 2px; background-color: white"></div></div><tp-yt-paper-tooltip position="top" class="style-scope ytd-sentiment-bar-renderer" role="tooltip" tabindex="-1" style="left: 8.25px; top: -82px; white-space: nowrap;"><!--css-build:shady-->' + likes + ' / ' + dislikes + '</tp-yt-paper-tooltip>';           
+			var color = document.getElementsByTagName("html")[0].getAttribute("dark") !== null ? 'white' : 'black';
+			bloop.innerHTML = '<div id="sentiment" class="style-scope ytd-video-primary-info-renderer customthingy" system-icons="" style="width: ' + wd +'px;"><!--css-build:shady--><div id="container" class="style-scope" style="height:2px; background-color: #777;"><div id="like-bar" class="style-scope" style="width: ' + ratio + '%; height: 2px; background-color: ' + color + '"></div></div><tp-yt-paper-tooltip position="top" class="style-scope ytd-sentiment-bar-renderer" role="tooltip" tabindex="-1" style="left: 8.25px; top: -82px; white-space: nowrap;"><!--css-build:shady-->' + likes + ' / ' + dislikes + '</tp-yt-paper-tooltip>';           
 			document.getElementById("menu-container").appendChild(bloop); 
 		}, 1000);
 	
