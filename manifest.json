@@ -1,0 +1,15 @@
+{
+	"name": "Add back youtube dislikes!",
+	"description": "Uses just the source code, no API required.",
+	"version": "1.0",
+	"manifest_version": 3,
+	"background": {
+		"service_worker": "background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": ["*://www.youtube.com/*"],
+			"js": ["tab.js"]
+		}
+	]
+}
